@@ -105,7 +105,7 @@ The Data Definition Language (DDL) used to create the tables can be found [here]
 ### Data dictionary 
 
 Below are the data definitions for the following tables: 
-
+<details>
 <summary><strong> Listings </strong></summary>
 |Column name| Definition | 
 |-|-|
@@ -161,7 +161,7 @@ Below are the data definitions for the following tables:
 |review_scores_value| The average score out of 10, given by the guests in terms of value (quality against price)  |
 |cancellation policy| how strict the listing is in terms of its cancellation policy |
 |reviews_per_month| The average number of reviews left per month for each listing |
-
+</details>
 
 <b>`Host`</b>
 |Column name| Definition | 
