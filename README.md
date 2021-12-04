@@ -165,7 +165,10 @@ Below are the data definitions for the following tables:
 |reviews_per_month| The average number of reviews left per month for each listing |
 </details>
 
-<b>`Host`</b>
+<details>
+<summary><strong> Hosts </strong></summary>
+    
+<b>`Hosts`</b>
 |Column name| Definition | 
 |-|-|
 |host_id|The unique id for each host|
@@ -183,22 +186,31 @@ Below are the data definitions for the following tables:
 |host_listings_count| The number of listings the host has with AirBNB|
 |host_has_profile_pic| Boolean whether the host has a picture loaded on AirBNB|
 |host_identity_verified| Boolean whether the host has had their identity verified by AirBNB |
-|a| a|
-|a| a|
+</details>
 
-
+<details>
+<summary><strong> Listings </strong></summary>
+    
 <b>`Host Verifications`</b>
 |Column name| Definition | 
 |-|-|
 |host_id|The unique id for each host|
 |host_verification_method|The method in which the host is verified by AirBNB|
+</details>
+
+<details>
+<summary><strong> Listings </strong></summary>
 
 <b>`Amenities`</b>
 |Column name| Definition | 
 |-|-|
 |listing_id|The unique id for each listing|
 |amenities|The amenity available for this listing|
+</details>
 
+<details>
+<summary><strong> Listings </strong></summary>
+    
 <b>`Calendar`</b>
 |Column name| Definition | 
 |-|-|
@@ -206,7 +218,11 @@ Below are the data definitions for the following tables:
 |date| the date | 
 |available| Boolean whether the listing was vacant on that date or not| 
 |price| the price to stay on that date provided the listing was available on that date| 
+</details>
 
+<details>
+<summary><strong> Listings </strong></summary>
+    
 <b>`Reviews`</b>
 |Column name| Definition | 
 |-|-|
@@ -215,13 +231,17 @@ Below are the data definitions for the following tables:
 |date| The date on which the review was submitted | 
 |reviewer_id| The unique id for each reviewer | 
 |comments| The written feedback for each review | 
+</details>
 
+<details>
+<summary><strong> Listings </strong></summary>
+    
 <b>`Guests`</b>
 |Column name| Definition | 
 |-|-|
 |reviewer_id|The unique id for each reviewer | 
 |reviewer_name|The name for each reviewer | 
-
+</details>
 
 # Usage 
 
