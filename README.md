@@ -41,7 +41,7 @@ requirements.txt                            # python dependencies
 The solution architecture diagram was created using: https://draw.io/ 
 
 
-![Solution architecture diagram.drawio.png](Images/Solution architecture diagram.drawio.png)
+![Solution_architecture_diagram.drawio.png](Images/Solution_architecture_diagram.drawio.png)
 
 
 The **E**xtract, **T**ransform, and **L**oad steps are explained below. 
