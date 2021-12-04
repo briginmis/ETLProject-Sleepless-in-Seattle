@@ -107,6 +107,7 @@ The Data Definition Language (DDL) used to create the tables can be found [here]
 Below are the data definitions for the following tables: 
 <details>
 <summary><strong> Listings </strong></summary>
+
 <b>`Listings`</b>
 |Column name| Definition | 
 |-|-|
