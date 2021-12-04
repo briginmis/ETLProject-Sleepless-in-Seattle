@@ -106,7 +106,7 @@ The Data Definition Language (DDL) used to create the tables can be found [here]
 
 Below are the data definitions for the following tables: 
 
-<summary><strong><b>`Listings`</b></strong></summary>
+<summary><strong> Listings </strong></summary>
 |Column name| Definition | 
 |-|-|
 |id|The unique id for each listing| 
