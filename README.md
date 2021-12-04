@@ -1,4 +1,5 @@
 # ETLProject-Sleepless-in-Seattle
+Contributors: Brianne Ng, Walton Tan, Daniel Bourke
 
 # Purpose and motivation
 
@@ -105,31 +106,101 @@ The Data Definition Language (DDL) used to create the tables can be found [here]
 
 Below are the data definitions for the following tables: 
 
-<b>`city`</b>
+<b>`Listings`</b>
 |Column name| Definition | 
 |-|-|
-|city_id|The unique id for each city| 
-|name| The name of the city |
-|coord_lon| The longitude of the city|
-|coord_lat| The latitude of the city| 
+|id|The unique id for each listing| 
+|listing_url| The url of each listing |
+|name| The name of each listing|
+|description| The description of each listing|
+|neighborhood_overview| An overview of the listings neighbourhood| 
+|notes| special comments made by the lister| 
+|transit| information on the transit options nearby| 
+|host_id| The unique id for the listings host| 
+|street| location of the listing in terms of street adress| 
+|neighborhood| location of the listing in terms of suburb| 
+|city| location of the listing in terms of City| 
+|state| location of teh listing in terms of State abv.| 
+|zipcode| location of the listing in terms of zipcode| 
+|smart_location| location of the listing in terms of City, State| 
+|country_code| location of teh listing in terms of country abv.| 
+|country| Location of the listing in terms of country| 
+|latitude| Location of the listing in terms of latitude| 
+|longitude| Location of the listing in terms of longitude| 
+|is_location_exact| Boolean whether the listing has its adress exactly matched| 
+|property_type| Type of property listing|
+|room_type| Whether the entire property is available to the guest or different portions of access to the property|
+|accommodates| the maximum number of guests allowed to stay at the listing|
+|bathrooms| number of bathrooms available|
+|bedrooms| number of bedrooms available|
+|beds| number of beds available|
+|bed_type| bed type|
+|price| price for 1 night|
+|weekly_price| price for 1 week|
+|monthly_price| price for 1 month|
+|security_deposit| security deposit for the listing|
+|cleaning_fee| fee for cleaning for each period of stay|
+|guests_included| maximum number of people allowed to visit the property|
+|extra_people| ??The price for extra people to stay??|
+|minimum_nights| the minimum number of nights which the guest must book|
+|maximum_nights| the minimum number of nights which the guest must book|
+|a| a|
+|a| a|
+|a| a|
+|a| a|
+|a| a|
+|a| a|
+|a| a|
+
+<b>`Host`</b>
+|Column name| Definition | 
+|-|-|
+|host_id|The unique id for each host|
+|host_url| the url for each host| 
+|host_name| the name of each host| 
+|host_since| the date the host began hosting on Airbnb| 
+|host_location| The hosts location in terms of city, state, country | 
+|host_about| the self-description of the host| 
+|host_response_time| average time it typically takes the host to respond to queries| 
+|host_response_rate| percentage of the time the host responds to queries|
+|host_acceptance_rate| percentage of the time the host accepts guests|
+|host_is_superhost| boolean whether the host is classified as a superhost by AirBNB|
+|host_picture_url| link to the hosts picture|
+|host_neighborhood| The hosts location in terms of suburb|
+|host_listings_count| The number of listings the host has with AirBNB|
+|host_has_profile_pic| Boolean whether the host has a picture loaded on AirBNB|
+|host_identity_verified| Boolean whether the host has had their identity verified by AirBNB |
+|a| a|
+|a| a|
+
+
+<b>`Host Verifications`</b>
+|Column name| Definition | 
+|-|-|
+|host_id|The unique id for each host|
+|host_verification_method|The method in which the host is verified by AirBNB|
+
+<b>`Amenities`</b>
+|Column name| Definition | 
+|-|-|
+|listing_id|The unique id for each listing|
+|amenities|The amenity available for this listing|
 
 <b>`temperature`</b>
 |Column name| Definition | 
 |-|-|
 |city_id|The unique id for each city| 
-|datetime| The timestamp of when the temperature was taken |
-|main_temp| The actual temperature at that time|
-|main_feels_like| The temperature it feels  like taking into consideration other factors|
-|main_temp_min| The minimum the temperature could be at that point in time|
-|main_temp_max| The maximum the temperature could be at that point in time|
+|a| a| 
+|a| a| 
+|a| a| 
 
 <b>`atmosphere`</b>
 |Column name| Definition | 
 |-|-|
 |city_id|The unique id for each city| 
-|datetime| The timestamp of when the atmosphere was measured |
-|main_pressure| The atmospheric pressure at that point in time|
-|main_humidity| The humidity at that point in time|
+|a| a| 
+|a| a| 
+|a| a| 
 
 
 
