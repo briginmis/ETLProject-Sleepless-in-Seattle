@@ -168,7 +168,7 @@ Below are the data definitions for the following tables:
 <details>
 <summary><strong> Hosts </strong></summary>
     
-<b>`Hosts`</b>
+
 |Column name| Definition | 
 |-|-|
 |host_id|The unique id for each host|
@@ -189,9 +189,9 @@ Below are the data definitions for the following tables:
 </details>
 
 <details>
-<summary><strong> Listings </strong></summary>
+<summary><strong> Host Verifications </strong></summary>
     
-<b>`Host Verifications`</b>
+
 |Column name| Definition | 
 |-|-|
 |host_id|The unique id for each host|
@@ -199,9 +199,9 @@ Below are the data definitions for the following tables:
 </details>
 
 <details>
-<summary><strong> Listings </strong></summary>
+<summary><strong> Amenities </strong></summary>
 
-<b>`Amenities`</b>
+
 |Column name| Definition | 
 |-|-|
 |listing_id|The unique id for each listing|
@@ -209,9 +209,9 @@ Below are the data definitions for the following tables:
 </details>
 
 <details>
-<summary><strong> Listings </strong></summary>
+<summary><strong> Calendar </strong></summary>
     
-<b>`Calendar`</b>
+
 |Column name| Definition | 
 |-|-|
 |listing_id|The unique id for each listing| 
@@ -221,9 +221,9 @@ Below are the data definitions for the following tables:
 </details>
 
 <details>
-<summary><strong> Listings </strong></summary>
+<summary><strong> Reviews </strong></summary>
     
-<b>`Reviews`</b>
+
 |Column name| Definition | 
 |-|-|
 |listing_id|The unique id for each listing| 
@@ -234,9 +234,9 @@ Below are the data definitions for the following tables:
 </details>
 
 <details>
-<summary><strong> Listings </strong></summary>
+<summary><strong> Guests </strong></summary>
     
-<b>`Guests`</b>
+
 |Column name| Definition | 
 |-|-|
 |reviewer_id|The unique id for each reviewer | 
