@@ -108,7 +108,7 @@ Below are the data definitions for the following tables:
 <details>
 <summary><strong> Listings </strong></summary>
 
-<b>`Listings`</b>
+
 |Column name| Definition | 
 |-|-|
 |id|The unique id for each listing| 
