@@ -3,7 +3,7 @@ Contributors: Brianne Ng, Walton Tan, Daniel Bourke
 
 # Purpose and motivation
 
-This repository demonstrates the process of extracting Seattle AirBNB data, performing ETL and then loading the data in a database which can then be queried by the analyst. 
+This repository demonstrates the process of extracting 2015-2016 Seattle AirBNB data, performing ETL and then loading the data in a database which can then be queried by the analyst. 
 
 Following this ETL process, analysts will be able to analyse and provide insight into:
  - What a prospective host should charge for their stay
@@ -144,13 +144,24 @@ Below are the data definitions for the following tables:
 |extra_people| ??The price for extra people to stay??|
 |minimum_nights| the minimum number of nights which the guest must book|
 |maximum_nights| the minimum number of nights which the guest must book|
-|a| a|
-|a| a|
-|a| a|
-|a| a|
-|a| a|
-|a| a|
-|a| a|
+|has_availability| Boolean whether or not the listing is potentially available for booking|
+|availability_30| how many days in the next 30 days is the listing available|
+|availability_60| how many days in the next 60 days is the listing available|
+|availability_90| how many days in the next 90 days is the listing available|
+|availability_365| how many days in the next 365 days is the listing available|
+|number_of_reviews| The number of reviews the listings has recieved|
+|first_review| The date on which the listing recieved its first review |
+|last_review| The date on which the listing recieved its latest review |
+|review_scores_rating| ?????|
+|review_scores_accuracy| The average score out of 10, given by the guests in terms of how accurate the listing description and photos were|
+|review_scores_cleanliness| The average score out of 10, given by the guests in terms of how clean the listing was |
+|review_scores_checkin| The average score out of 10, given by the guests in terms of how pleasant the checkin process was  |
+|review_scores_communication| The average score out of 10, given by the guests in terms of communication to the host |
+|review_scores_location| The average score out of 10, given by the guests in terms of how good the location of the listing was |
+|review_scores_value| The average score out of 10, given by the guests in terms of value (quality against price)  |
+|cancellation policy| how strict the listing is in terms of its cancellation policy |
+|reviews_per_month| The average number of reviews left per month for each listing |
+
 
 <b>`Host`</b>
 |Column name| Definition | 
@@ -186,22 +197,28 @@ Below are the data definitions for the following tables:
 |listing_id|The unique id for each listing|
 |amenities|The amenity available for this listing|
 
-<b>`temperature`</b>
+<b>`Calendar`</b>
 |Column name| Definition | 
 |-|-|
-|city_id|The unique id for each city| 
-|a| a| 
-|a| a| 
-|a| a| 
+|listing_id|The unique id for each listing| 
+|date| the date | 
+|available| Boolean whether the listing was vacant on that date or not| 
+|price| the price to stay on that date provided the listing was available on that date| 
 
-<b>`atmosphere`</b>
+<b>`Reviews`</b>
 |Column name| Definition | 
 |-|-|
-|city_id|The unique id for each city| 
-|a| a| 
-|a| a| 
-|a| a| 
+|listing_id|The unique id for each listing| 
+|id| The unique id for each review of that listing| 
+|date| The date on which the review was submitted | 
+|reviewer_id| The unique id for each reviewer | 
+|comments| The written feedback for each review | 
 
+<b>`Guests`</b>
+|Column name| Definition | 
+|-|-|
+|reviewer_id|The unique id for each reviewer | 
+|reviewer_name|The name for each reviewer | 
 
 
 # Usage 
