@@ -1,0 +1,23 @@
+name: ETL CI
+on: [push, pull_request]
+jobs: 
+  run-etl-ci: 
+    runs-on: ubuntu-latest
+    steps:
+      # checkout git repository 
+      - uses: actions/checkout@v2
+      # set up virtual environment and install python requirements 
+      - run: |
+          python -V
+          pip install virtualenv
+          virtualenv venv
+          source venv/bin/activate
+      - run: pip install -r requirements.txt
+      # run unit tests 
+      - run: pytest scripts --junitxml=unit-testresults.xml
+      # output unit test results to github
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: always()
+        with:
+          files: unit-testresults.xml

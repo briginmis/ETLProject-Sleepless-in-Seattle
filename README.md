@@ -106,7 +106,7 @@ The Data Definition Language (DDL) used to create the tables can be found [here]
 
 Below are the data definitions for the following tables: 
 
-<b>`Listings`</b>
+<summary><strong><b>`Listings`</b></strong></summary>
 |Column name| Definition | 
 |-|-|
 |id|The unique id for each listing| 
@@ -291,30 +291,6 @@ The expected output when the CI pipeline runs are:
 
 ## Scheduling jobs 
 
-
-<details>
-<summary><strong> Cron (MacOS or Linux) </strong></summary>
-
-To schedule a job using cron (see full guide [here](https://ole.michelsen.dk/blog/schedule-jobs-with-crontab-on-mac-osx/)): 
-
-```sh 
-# open crontab 
-env EDITOR=nano crontab -e
-# paste the following into crontab
-* * * * * cd /Users/jonathanneo/Documents/trilogy/weather-etl/scripts && bash run_etl.sh
-# write the file using: CTRL + O
-# close the file using: CTRL + X
-# check that the cron job has been scheduled - you should see your job appear 
-crontab -l 
-```
-
-You should see the following output: 
-```
-(base) Jonathans-MacBook-Pro-2:~ jonathanneo$ crontab -l
-* * * * * cd /Users/jonathanneo/Documents/trilogy/weather-etl/scripts && bash run_etl.sh
-```
-
-</details>
 
 <details>
 <summary><strong> Task Scheduler (Windows) </strong></summary>
