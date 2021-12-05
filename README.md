@@ -3,19 +3,20 @@ Contributors: Brianne Ng, Walton Tan, Daniel Bourke
 
 # Purpose and motivation
 
-This repository demonstrates the process of extracting 2015-2016 Seattle AirBNB data, performing ETL and then loading the data in a database which can then be queried by the analyst. 
+This repository demonstrates the process of extracting 2015-2016 Seattle AirBNB and tourism data, performing ETL and then loading the data in a database which can then be queried by the analyst. 
 
 Following this ETL process, analysts will be able to analyse and provide insight into:
- - What a prospective host should charge for their stay
- - Which factors contribute to high review scores
- - Where are the cheapest stays in Seattle
- - Which is the busiest time of the year
- - Does price impact customer satisfaction
+ - What a prospective host should charge for their stay?
+ - Which factors contribute to high review scores?
+ - Where are the cheapest stays in Seattle?
+ - Which is the busiest time of the year?
+ - Does price impact customer satisfaction?
+ - How far are Seattle's landmarks from each property?
 
 
 This code repository contains the solution to perform the ETL on a scheduled basis, and store the data in a PostgreSQL Database. 
 
-To provide confidence over the transformations applied, unit tests have also been written. Continuous integraiton pipelines has also been configured to automate the testing of code prior to merging to `main`.  
+To provide confidence over the transformations applied, unit tests have also been written. Continuous integration pipelines have also been configured to automate the testing of code prior to merging to `main`.  
 
 # Repo structure 
 ```
@@ -57,7 +58,9 @@ Data is extracted from the following data sources.
 | - | - | - |- | - |
 | 1 | Listings.csv | Contains details of each listing | CSV | https://www.kaggle.com/airbnb/seattle?select=listings.csv | 
 | 2 | Calendar.csv | Contains the availability and price of each listing for each date | CSV | https://www.kaggle.com/airbnb/seattle?select=calendar.csv |
-| 3 | Reviews.csv | Contains the text commentary for each review | CSV | https://www.kaggle.com/airbnb/seattle?select=reviews.csv | 
+| 3 | Reviews.csv | Contains the text commentary for each review | CSV | https://www.kaggle.com/airbnb/seattle?select=reviews.csv 
+| 4 | Visit Seattle | Top 25 attractions in Seattle | HTML | https://visitseattle.org/things-to-do/sightseeing/top-25-attractions/ 
+| 3 | Google Text Search | Contains coordinates of locations | API | https://developers.google.com/maps/documentation/places/web-service/search-text | 
 
 </details>
 
@@ -106,7 +109,7 @@ The Data Definition Language (DDL) used to create the tables can be found [here]
 
 Below are the data definitions for the following tables: 
 <details>
-<summary><strong> Listings </strong></summary>
+<summary><strong> Listing </strong></summary>
 
 
 |Column name| Definition | 
@@ -122,10 +125,10 @@ Below are the data definitions for the following tables:
 |street| location of the listing in terms of street adress| 
 |neighborhood| location of the listing in terms of suburb| 
 |city| location of the listing in terms of City| 
-|state| location of teh listing in terms of State abv.| 
+|state| location of the listing in terms of State abv.| 
 |zipcode| location of the listing in terms of zipcode| 
 |smart_location| location of the listing in terms of City, State| 
-|country_code| location of teh listing in terms of country abv.| 
+|country_code| location of the listing in terms of country abv.| 
 |country| Location of the listing in terms of country| 
 |latitude| Location of the listing in terms of latitude| 
 |longitude| Location of the listing in terms of longitude| 
@@ -163,6 +166,34 @@ Below are the data definitions for the following tables:
 |review_scores_value| The average score out of 10, given by the guests in terms of value (quality against price)  |
 |cancellation policy| how strict the listing is in terms of its cancellation policy |
 |reviews_per_month| The average number of reviews left per month for each listing |
+</details>
+
+<details>
+<summary><strong> Property </strong></summary>
+
+
+|Column name| Definition | 
+|-|-|
+|id|The unique id for each listing| 
+|host_id| The unique id for the listings host| 
+|listing_url| The url of each listing |
+|name| The name of each listing|
+|description| The description of each listing|
+|zipcode| location of the listing in terms of zipcode| 
+|latitude| Location of the listing in terms of latitude| 
+|longitude| Location of the listing in terms of longitude| 
+|property_type| Type of property listing|
+|room_type| Whether the entire property is available to the guest or different portions of access to the property|
+|accommodates| the maximum number of guests allowed to stay at the listing|
+|bathrooms| number of bathrooms available|
+|bedrooms| number of bedrooms available|
+|beds| number of beds available|
+|bed_type| bed type|
+|price| price for 1 night|
+|security_deposit| security deposit for the listing|
+|cleaning_fee| fee for cleaning for each period of stay|
+|minimum_nights| the minimum number of nights which the guest must book|
+|cancellation policy| how strict the listing is in terms of its cancellation policy |
 </details>
 
 <details>
@@ -241,6 +272,47 @@ Below are the data definitions for the following tables:
 |-|-|
 |reviewer_id|The unique id for each reviewer | 
 |reviewer_name|The name for each reviewer | 
+</details>
+
+<details>
+<summary><strong> Review Statistics </strong></summary>
+
+|Column name| Definition | 
+|-|-|
+|reviewer_id|The unique id for each reviewer | 
+|number_of_reviews|Total number of reviews | 
+|first_review|First review written | 
+|last_review|Last review written | 
+|review_scores_rating|Average rating of listing | 
+|review_scores_accuracy|Average rating of listing's accuracy | 
+|review_scores_cleanliness|Average rating of listing's cleanliness | 
+|review_scores_checkin|Average rating of listing's check-in process | 
+|review_scores_communication|Average rating of host's communication |
+|review_scores_location|Average rating of listing's location |
+|review_scores_value|???? |
+|reviews_per_month|Average number of reviews per month  |
+
+
+</details>
+
+<details>
+<summary><strong> DF CHECK??? </strong></summary>
+
+|Column name| Definition | 
+|-|-|
+|id|The unique id for each listing| 
+|name| The name of each listing|
+|price| price for 1 night|
+|weekly_price| price for 1 week|
+|monthly_price| price for 1 month|
+|security_deposit| security deposit for the listing|
+|cleaning_fee| fee for cleaning for each period of stay|
+|host_response_rate| response rate|
+|host_acceptance_rate| acceptance rate|
+|host_is_superhost| Boolean whether the host's is classed as a superhost|
+|host_has_profile_pic| Boolean whether the host has a profile picture|
+|host_identity_verified| Boolean whether the host's identity has been verified by AirBNB|
+
 </details>
 
 # Usage 
