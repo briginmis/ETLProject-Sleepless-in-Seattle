@@ -6,17 +6,17 @@ def test_explode_into_rows_in_new_table():
 
     # ASSEMBLE 
     input_df = pd.DataFrame({
-        "host_id": [956883,5177328],
-        "host_verifications": [["'email'","'phone'"],["'reviews'","'email'"]]
+        "listing_id": [241032,953595],
+        "amenities": ['{TV,"Cable TV"}','{"Wireless Internet",TV}']
     })
 
     expected_df = pd.DataFrame({
-        "host_id": [956883,956883,5177328,5177328], 
-        "host_verifications": ["email","phone","reviews","email"] 
+        "listing_id": [241032,241032,953595,953595], 
+        "amenities": ["TV","Cable TV","Wireless Internet","TV"] 
     })
 
     # ACT 
-    output_df = explode_into_rows_in_new_table(input_df=input_df, id_column = "host_id", explode_column = "host_verifications")
+    output_df = explode_into_rows_in_new_table(input_df=input_df, id_column = "listing_id", explode_column = "amenities")
 
     # ASSERT 
 

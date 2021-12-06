@@ -7,6 +7,8 @@ def explode_into_rows_in_new_table (input_df:pd.DataFrame,id_column, explode_col
     input_df[explode_column]= input_df[explode_column].str.replace('"','')
     input_df[explode_column]= input_df[explode_column].str.replace('[','')
     input_df[explode_column]= input_df[explode_column].str.replace(']','')
+    input_df[explode_column]= input_df[explode_column].str.replace("'","")
+
 
     # split the lists inside the amenities column for each row ????
     id_list=[]
@@ -20,4 +22,5 @@ def explode_into_rows_in_new_table (input_df:pd.DataFrame,id_column, explode_col
 
     # Explode (split the lists into new rows)
     df2=df2.explode(explode_column)
-    return df2
+    #df2=df2.reset_index()
+    return df2.reset_index()
