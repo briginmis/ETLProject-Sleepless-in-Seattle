@@ -109,30 +109,15 @@ The Data Definition Language (DDL) used to create the tables can be found [here]
 
 Below are the data definitions for the following tables: 
 <details>
-<summary><strong> Listing </strong></summary>
+<summary><strong> Property </strong></summary>
 
 
 |Column name| Definition | 
 |-|-|
-|id|The unique id for each listing| 
+|listing_id|The unique id for each listing| 
+|host_id| The unique id for the listings host| 
 |listing_url| The url of each listing |
 |name| The name of each listing|
-|description| The description of each listing|
-|neighborhood_overview| An overview of the listings neighbourhood| 
-|notes| special comments made by the lister| 
-|transit| information on the transit options nearby| 
-|host_id| The unique id for the listings host| 
-|street| location of the listing in terms of street adress| 
-|neighborhood| location of the listing in terms of suburb| 
-|city| location of the listing in terms of City| 
-|state| location of the listing in terms of State abv.| 
-|zipcode| location of the listing in terms of zipcode| 
-|smart_location| location of the listing in terms of City, State| 
-|country_code| location of the listing in terms of country abv.| 
-|country| Location of the listing in terms of country| 
-|latitude| Location of the listing in terms of latitude| 
-|longitude| Location of the listing in terms of longitude| 
-|is_location_exact| Boolean whether the listing has its adress exactly matched| 
 |property_type| Type of property listing|
 |room_type| Whether the entire property is available to the guest or different portions of access to the property|
 |accommodates| the maximum number of guests allowed to stay at the listing|
@@ -140,65 +125,106 @@ Below are the data definitions for the following tables:
 |bedrooms| number of bedrooms available|
 |beds| number of beds available|
 |bed_type| bed type|
+|square_feet| square feet|
+|description| The description of each listing|
+|notes| special comments made by the lister| 
+|transit| information on the transit options nearby| 
+|picture_url| url for property picture| 
+|guests_included| maximum number of people allowed to visit the property|
+|minimum_nights| the minimum number of nights which the guest must book|
+|maximum_nights| the minimum number of nights which the guest must book|
+</details>
+
+
+<details>
+<summary><strong> Address </strong></summary>
+
+
+|Column name| Definition | 
+|-|-|
+|listing_id|The unique id for each listing| 
+|country_code| location of the listing in terms of country abv.| 
+|country| Location of the listing in terms of country| 
+|state| location of the listing in terms of State abv.| 
+|city| location of the listing in terms of City| 
+|zipcode| location of the listing in terms of zipcode| 
+|smart_location| location of the listing in terms of City, State| 
+|neighborhood| location of the listing in terms of suburb| 
+|street| location of the listing in terms of street adress| 
+|latitude| Location of the listing in terms of latitude| 
+|longitude| Location of the listing in terms of longitude| 
+|is_location_exact| Boolean whether the listing has its adress exactly matched| 
+</details>
+
+
+<details>
+<summary><strong> Pricing </strong></summary>
+
+
+|Column name| Definition | 
+|-|-|
+|listing_id|The unique id for each listing| 
 |price| price for 1 night|
 |weekly_price| price for 1 week|
 |monthly_price| price for 1 month|
 |security_deposit| security deposit for the listing|
 |cleaning_fee| fee for cleaning for each period of stay|
-|guests_included| maximum number of people allowed to visit the property|
 |extra_people| ??The price for extra people to stay??|
-|minimum_nights| the minimum number of nights which the guest must book|
-|maximum_nights| the minimum number of nights which the guest must book|
-|has_availability| Boolean whether or not the listing is potentially available for booking|
-|availability_30| how many days in the next 30 days is the listing available|
-|availability_60| how many days in the next 60 days is the listing available|
-|availability_90| how many days in the next 90 days is the listing available|
-|availability_365| how many days in the next 365 days is the listing available|
-|number_of_reviews| The number of reviews the listings has recieved|
+|cancellation policy| how strict the listing is in terms of its cancellation policy |
+</details>
+
+
+<details>
+<summary><strong> Review_Statistics </strong></summary>
+
+
+|Column name| Definition | 
+|-|-|
+|listing_id|The unique id for each listing| 
+|number_of_reviews|Total number of reviews | 
+|reviews_per_month|Average number of reviews per month  |
 |first_review| The date on which the listing recieved its first review |
 |last_review| The date on which the listing recieved its latest review |
-|review_scores_rating| ?????|
+|review_scores_rating|Average rating of listing | 
 |review_scores_accuracy| The average score out of 10, given by the guests in terms of how accurate the listing description and photos were|
 |review_scores_cleanliness| The average score out of 10, given by the guests in terms of how clean the listing was |
 |review_scores_checkin| The average score out of 10, given by the guests in terms of how pleasant the checkin process was  |
 |review_scores_communication| The average score out of 10, given by the guests in terms of communication to the host |
 |review_scores_location| The average score out of 10, given by the guests in terms of how good the location of the listing was |
 |review_scores_value| The average score out of 10, given by the guests in terms of value (quality against price)  |
-|cancellation policy| how strict the listing is in terms of its cancellation policy |
-|reviews_per_month| The average number of reviews left per month for each listing |
 </details>
 
+
 <details>
-<summary><strong> Property </strong></summary>
+<summary><strong> Availability </strong></summary>
 
 
 |Column name| Definition | 
 |-|-|
-|id|The unique id for each listing| 
-|host_id| The unique id for the listings host| 
-|listing_url| The url of each listing |
-|name| The name of each listing|
-|description| The description of each listing|
-|zipcode| location of the listing in terms of zipcode| 
-|latitude| Location of the listing in terms of latitude| 
-|longitude| Location of the listing in terms of longitude| 
-|property_type| Type of property listing|
-|room_type| Whether the entire property is available to the guest or different portions of access to the property|
-|accommodates| the maximum number of guests allowed to stay at the listing|
-|bathrooms| number of bathrooms available|
-|bedrooms| number of bedrooms available|
-|beds| number of beds available|
-|bed_type| bed type|
-|price| price for 1 night|
-|security_deposit| security deposit for the listing|
-|cleaning_fee| fee for cleaning for each period of stay|
-|minimum_nights| the minimum number of nights which the guest must book|
-|cancellation policy| how strict the listing is in terms of its cancellation policy |
+|listing_id|The unique id for each listing| 
+|has_availability| Boolean whether or not the listing is potentially available for booking|
+|availability_30| how many days in the next 30 days is the listing available|
+|availability_60| how many days in the next 60 days is the listing available|
+|availability_90| how many days in the next 90 days is the listing available|
+|availability_365| how many days in the next 365 days is the listing available|
+|calendar_updated| When the calendar was last updated| 
 </details>
 
+
 <details>
-<summary><strong> Hosts </strong></summary>
-    
+<summary><strong> Amenities </strong></summary>
+
+
+|Column name| Definition | 
+|-|-|
+|listing_id|The unique id for each listing|
+|amenities|The amenity available for this listing|
+</details>
+
+
+<details>
+<summary><strong> Host </strong></summary>
+
 
 |Column name| Definition | 
 |-|-|
@@ -206,18 +232,18 @@ Below are the data definitions for the following tables:
 |host_url| the url for each host| 
 |host_name| the name of each host| 
 |host_since| the date the host began hosting on Airbnb| 
-|host_location| The hosts location in terms of city, state, country | 
 |host_about| the self-description of the host| 
+|host_is_superhost| boolean whether the host is classified as a superhost by AirBNB|
+|host_picture_url| link to the hosts picture|
+|host_listings_count| The number of listings the host has with AirBNB|
+|host_identity_verified| Boolean whether the host has had their identity verified by AirBNB |
+|host_location| The hosts location in terms of city, state, country | 
 |host_response_time| average time it typically takes the host to respond to queries| 
 |host_response_rate| percentage of the time the host responds to queries|
 |host_acceptance_rate| percentage of the time the host accepts guests|
-|host_is_superhost| boolean whether the host is classified as a superhost by AirBNB|
-|host_picture_url| link to the hosts picture|
 |host_neighborhood| The hosts location in terms of suburb|
-|host_listings_count| The number of listings the host has with AirBNB|
-|host_has_profile_pic| Boolean whether the host has a picture loaded on AirBNB|
-|host_identity_verified| Boolean whether the host has had their identity verified by AirBNB |
 </details>
+
 
 <details>
 <summary><strong> Host Verifications </strong></summary>
@@ -229,15 +255,21 @@ Below are the data definitions for the following tables:
 |host_verification_method|The method in which the host is verified by AirBNB|
 </details>
 
-<details>
-<summary><strong> Amenities </strong></summary>
 
+<details>
+<summary><strong> Reviews </strong></summary>
+    
 
 |Column name| Definition | 
 |-|-|
-|listing_id|The unique id for each listing|
-|amenities|The amenity available for this listing|
+|review_id| The unique id for each review of that listing| 
+|listing_id|The unique id for each listing| 
+|date| The date on which the review was submitted | 
+|comments| The written feedback for each review | 
+|reviewer_id| The unique id for each reviewer | 
+|reviewer_name|The name for each reviewer | 
 </details>
+
 
 <details>
 <summary><strong> Calendar </strong></summary>
@@ -251,69 +283,13 @@ Below are the data definitions for the following tables:
 |price| the price to stay on that date provided the listing was available on that date| 
 </details>
 
-<details>
-<summary><strong> Reviews </strong></summary>
-    
-
-|Column name| Definition | 
-|-|-|
-|listing_id|The unique id for each listing| 
-|id| The unique id for each review of that listing| 
-|date| The date on which the review was submitted | 
-|reviewer_id| The unique id for each reviewer | 
-|comments| The written feedback for each review | 
-</details>
-
-<details>
-<summary><strong> Guests </strong></summary>
-    
-
-|Column name| Definition | 
-|-|-|
-|reviewer_id|The unique id for each reviewer | 
-|reviewer_name|The name for each reviewer | 
-</details>
-
-<details>
-<summary><strong> Review Statistics </strong></summary>
-
-|Column name| Definition | 
-|-|-|
-|reviewer_id|The unique id for each reviewer | 
-|number_of_reviews|Total number of reviews | 
-|first_review|First review written | 
-|last_review|Last review written | 
-|review_scores_rating|Average rating of listing | 
-|review_scores_accuracy|Average rating of listing's accuracy | 
-|review_scores_cleanliness|Average rating of listing's cleanliness | 
-|review_scores_checkin|Average rating of listing's check-in process | 
-|review_scores_communication|Average rating of host's communication |
-|review_scores_location|Average rating of listing's location |
-|review_scores_value|???? |
-|reviews_per_month|Average number of reviews per month  |
 
 
-</details>
 
-<details>
-<summary><strong> DF CHECK??? </strong></summary>
 
-|Column name| Definition | 
-|-|-|
-|id|The unique id for each listing| 
-|name| The name of each listing|
-|price| price for 1 night|
-|weekly_price| price for 1 week|
-|monthly_price| price for 1 month|
-|security_deposit| security deposit for the listing|
-|cleaning_fee| fee for cleaning for each period of stay|
-|host_response_rate| response rate|
-|host_acceptance_rate| acceptance rate|
-|host_is_superhost| Boolean whether the host's is classed as a superhost|
-|host_has_profile_pic| Boolean whether the host has a profile picture|
-|host_identity_verified| Boolean whether the host's identity has been verified by AirBNB|
 
-</details>
+
+
 
 # Usage 
 
