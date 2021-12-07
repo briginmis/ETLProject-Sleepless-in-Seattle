@@ -12,9 +12,9 @@ jobs:
           pip install virtualenv
           virtualenv venv
           source venv/bin/activate
-      - run: pip install -r requirements.txt
+      - run: pip install -r Requirements.txt
       # run unit tests 
-      - run: pytest scripts --junitxml=unit-testresults.xml
+      - run: pytest Scripts --junitxml=unit-testresults.xml
       # output unit test results to github
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v1

@@ -65,6 +65,7 @@ CREATE TABLE "Address" (
     "latitude" NUMERIC   NOT NULL,
     "longitude" NUMERIC   NOT NULL,
     "is_location_exact" BOOLEAN   NOT NULL,
+    "Distance" NUMERIC NOT NULL,
     CONSTRAINT "pk_Address" PRIMARY KEY (
         "listing_id"
      )

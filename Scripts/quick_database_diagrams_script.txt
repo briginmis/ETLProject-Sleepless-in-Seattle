@@ -58,7 +58,8 @@ neighbourhood VARCHAR
 street VARCHAR 
 latitude NUMERIC 
 longitude NUMERIC 
-is_location_exact BOOLEAN 
+is_location_exact BOOLEAN
+Distance NUMERIC 
 -
 
 Amenities
