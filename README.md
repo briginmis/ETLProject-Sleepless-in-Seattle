@@ -11,7 +11,7 @@ Following this ETL process, analysts will be able to analyse and provide insight
  - Where are the cheapest stays in Seattle?
  - Which is the busiest time of the year?
  - Does price impact customer satisfaction?
- - How far are Seattle's landmarks from each property?
+ - What is the average distance between the properties and Seattle's landmarks?
 
 
 This code repository contains the solution to perform the ETL on a scheduled basis, and store the data in a PostgreSQL Database. 
@@ -21,7 +21,7 @@ To provide confidence over the transformations applied, unit tests have also bee
 # Repo structure 
 ```
 .github/workflows                           # contains continuous integration pipelines 
-Resources/                                       # contains static datasets 
+Resources/                                  # contains static datasets and cleaned datasets
 Docs/                                       # contains additional documentation 
 images/                                     # contains images used for the README
 scripts/    
