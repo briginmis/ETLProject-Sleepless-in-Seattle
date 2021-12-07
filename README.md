@@ -101,7 +101,7 @@ Data is loaded into the PostgreSQL using an upsert (insert/update) statement.
 
 The ERD diagram was created using: https://app.quickdatabasediagrams.com/#/
 
-![ERD.PNG](images/ERD.PNG)
+![ERD.PNG](Images/ERD.PNG)
 
 The Data Definition Language (DDL) used to create the tables can be found [here](scripts/ddl_create_table.sql). 
 
@@ -154,7 +154,7 @@ Below are the data definitions for the following tables:
 |latitude| Location of the listing in terms of latitude| 
 |longitude| Location of the listing in terms of longitude| 
 |is_location_exact| Boolean whether the listing has its adress exactly matched|
-|Distance| Average distance in Km from address to top 25 landmarks in Seattle |  
+|distance| Average distance in Km from address to top 25 landmarks in Seattle |  
 </details>
 
 
