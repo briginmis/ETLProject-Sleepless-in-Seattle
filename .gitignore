@@ -1,8 +1,5 @@
 #user files
-Scripts/credentials.py
-/credentials.py
-Scripts/credentials.py
-credentials.py
+Scripts/credentials.py/
 
 #Everything else
 .ipynb_checkpoints
