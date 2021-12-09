@@ -9,7 +9,6 @@ Resources/.ipynb_checkpoints
 Scripts/__pycache__/
 Scripts/.ipynb_checkpoints
 Scripts/.pytest_cache
-Scripts/.pytest_cache
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
