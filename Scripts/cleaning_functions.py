@@ -1,7 +1,11 @@
+#Import dependencies
+
 import pandas as pd
 
+#Create function to convert list in one cell, to many rows
+
 def explode_into_rows_in_new_table (input_df:pd.DataFrame,id_column, explode_column):
-    # remove the { and } and " from the amenities column
+    # remove any unwanted brackets and quotation marks from the amenities column
     input_df[explode_column]=input_df[explode_column].str.replace('{','')
     input_df[explode_column]=input_df[explode_column].str.replace('}','')
     input_df[explode_column]= input_df[explode_column].str.replace('"','')
@@ -10,9 +14,10 @@ def explode_into_rows_in_new_table (input_df:pd.DataFrame,id_column, explode_col
     input_df[explode_column]= input_df[explode_column].str.replace("'","")
 
 
-    # split the lists inside the amenities column for each row ????
+    # Create lists to store id and list of amenities
     id_list=[]
     explode_list=[]
+    #iterate through each row and convert the string lists to actual lists using split function
     for index,row in input_df.iterrows():
         id_list.append(row[id_column])
         explode_list.append(row[explode_column].split(","))
@@ -25,6 +30,7 @@ def explode_into_rows_in_new_table (input_df:pd.DataFrame,id_column, explode_col
     df2=df2.reset_index(drop=True)
     return df2
 
+#Create function to clean prices, by removing dollar signs and commas
 def clean_dollar(input_df, col_list):
     df=input_df.copy(deep=True)
     for col in col_list:
@@ -32,12 +38,14 @@ def clean_dollar(input_df, col_list):
         df[col] = df[col].str.replace(',','')
     return df
 
+#Create function to convert percentages into floats by removing '%' sign
 def clean_percent(input_df, col_list):
     df=input_df.copy(deep=True)
     for col in col_list:
         df[col] = df[col].str.replace('%','')
     return df
 
+#Create function to replace 't' with 'True', and 'f' with False
 def clean_boo(input_df, col_list):
     df=input_df.copy(deep=True)
     for col in col_list:
