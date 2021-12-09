@@ -1,8 +1,8 @@
 # ETLProject-Sleepless-in-Seattle
 Contributors: 
- - Brianne Ng [@briginmis] (https://github.com/briginmis)
- - Walton Tan [@waltontan] (https://github.com/Waltontan)
- - Daniel Bourke [@Daniel-Bourke] (https://github.com/Daniel-Bourke)
+ - [@briginmis](https://github.com/briginmis)
+ - [@Waltontan](https://github.com/Waltontan)
+ - [@Daniel-Bourke](https://github.com/Daniel-Bourke)
 
 # Purpose and motivation
 

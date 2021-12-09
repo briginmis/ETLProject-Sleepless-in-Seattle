@@ -5,7 +5,7 @@ import pandas as pd
 #Create function to convert list in one cell, to many rows
 
 def explode_into_rows_in_new_table (input_df:pd.DataFrame,id_column, explode_column):
-    # remove the { and } and " from the amenities column
+    # remove any unwanted brackets and quotation marks from the amenities column
     input_df[explode_column]=input_df[explode_column].str.replace('{','')
     input_df[explode_column]=input_df[explode_column].str.replace('}','')
     input_df[explode_column]= input_df[explode_column].str.replace('"','')
@@ -14,9 +14,10 @@ def explode_into_rows_in_new_table (input_df:pd.DataFrame,id_column, explode_col
     input_df[explode_column]= input_df[explode_column].str.replace("'","")
 
 
-    # split the lists inside the amenities column for each row ????
+    # Create lists to store id and list of amenities
     id_list=[]
     explode_list=[]
+    #iterate through each row and convert the string lists to actual lists using split function
     for index,row in input_df.iterrows():
         id_list.append(row[id_column])
         explode_list.append(row[explode_column].split(","))
