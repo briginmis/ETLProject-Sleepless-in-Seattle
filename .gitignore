@@ -1,8 +1,5 @@
 #user files
-Scripts/credentials.py
-/credentials.py
-Scripts/credentials.py
-credentials.py
+Scripts/credentials.py/
 
 #Everything else
 .ipynb_checkpoints
@@ -11,7 +8,6 @@ Resources/__pycache__/
 Resources/.ipynb_checkpoints
 Scripts/__pycache__/
 Scripts/.ipynb_checkpoints
-Scripts/.pytest_cache
 Scripts/.pytest_cache
 
 # Byte-compiled / optimized / DLL files
