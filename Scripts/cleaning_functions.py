@@ -1,4 +1,8 @@
+#Import dependencies
+
 import pandas as pd
+
+#Create function to convert list in one cell, to many rows
 
 def explode_into_rows_in_new_table (input_df:pd.DataFrame,id_column, explode_column):
     # remove the { and } and " from the amenities column
@@ -25,6 +29,7 @@ def explode_into_rows_in_new_table (input_df:pd.DataFrame,id_column, explode_col
     df2=df2.reset_index(drop=True)
     return df2
 
+#Create function to clean prices, by removing dollar signs and commas
 def clean_dollar(input_df, col_list):
     df=input_df.copy(deep=True)
     for col in col_list:
@@ -32,12 +37,14 @@ def clean_dollar(input_df, col_list):
         df[col] = df[col].str.replace(',','')
     return df
 
+#Create function to convert percentages into floats by removing '%' sign
 def clean_percent(input_df, col_list):
     df=input_df.copy(deep=True)
     for col in col_list:
         df[col] = df[col].str.replace('%','')
     return df
 
+#Create function to replace 't' with 'True', and 'f' with False
 def clean_boo(input_df, col_list):
     df=input_df.copy(deep=True)
     for col in col_list:

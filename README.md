@@ -1,5 +1,8 @@
 # ETLProject-Sleepless-in-Seattle
-Contributors: Brianne Ng, Walton Tan, Daniel Bourke
+Contributors: 
+ - Brianne Ng [@briginmis] (https://github.com/briginmis)
+ - Walton Tan [@waltontan] (https://github.com/Waltontan)
+ - Daniel Bourke [@Daniel-Bourke] (https://github.com/Daniel-Bourke)
 
 # Purpose and motivation
 
@@ -306,12 +309,12 @@ pip install -r requirements.txt
 ## Credentials 
 In the `script/` folder, create a `credentials.py` file with the following variables:
 ```py
-api_key = "<your_api_key>"                  # open weather API api key 
+api_key = "<your_api_key>"                  # open Google API api key 
 db_user = "<your_database_user>"            # postgresql username 
 db_password = "<your_database_password>"    # postgresql password 
 ```
 
-These credentials will be used in the `etl.ipynb` notebook. 
+These credentials will be used in the `scrape.ipynb` notebook. 
 
 The `credentials.py` file is already in .gitignore and thus your credentials will not be stored on Git. 
 
@@ -319,26 +322,31 @@ The `credentials.py` file is already in .gitignore and thus your credentials wil
 To run the ETL code on your computer, execute the following in your terminal: 
 
 ```
-cd scripts
-python -m jupyter nbconvert --to python scripts/etl.ipynb
-python scripts/etl.py
+cd Scripts
+python -m jupyter nbconvert --to python scripts/etl.ipynb #JONO's
+python scripts/etl.py #JONO's
+python Scripts/cleaning_functions.py
+
 ```
 
 ## Run unit tests 
 To run the unit tests on your computer, execute the following in your terminal: 
 
 ```
-pytest scripts
+pytest Scripts
 ```
 
 You should see the following output: 
 
 ```
 ====== test session starts ======
-platform darwin -- Python 3.7.11, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
-collected 2 items
-scripts/test_transformation_functions.py .. [100%]
-====== 2 passed in 0.36s ======
+platform win32 -- Python 3.8.8, pytest-6.2.3, py-1.10.0, pluggy-0.13.1
+rootdir: C:\Users\brian\OneDrive\Documents\Data_analytics_bootcamp\Project_2\ETLProject-Sleepless-in-Seattle
+plugins: anyio-2.2.0
+collected 4 items
+
+Scripts\test_transformation_functions.py ....  
+====== 4 passed in 0.73s ======
 ```
 
 ## Continuous integration 
@@ -401,6 +409,3 @@ The expected output when the CI pipeline runs are:
 8. Click `OK` 
 
 </details>
-
-# Contributors
-- [@jonathanneo](https://github.com/jonathanneo)
