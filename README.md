@@ -31,9 +31,9 @@ Images/                                     # contains images used for the READM
     |__ Solution_architexture_diagram.PNG   # Solution Architecture Diagram
     |__ task_scheduler_action.PNG           # Screenshot of task scheduler edit action
     |__ task_scheduler_actions.PNG          # Screenshot of task scheduler actions
-    |__ task_scheduler_general.PNG          # Screenshot of task schduler general
-    |__ task_scheduler_trigger.PNG          # Screenshot of task schduler trigger schedule
-    |__ task_scheduler_triggers.PNG         # Screenshot of task schduler triggers
+    |__ task_scheduler_general.PNG          # Screenshot of task scheduler general
+    |__ task_scheduler_trigger.PNG          # Screenshot of task scheduler trigger schedule
+    |__ task_scheduler_triggers.PNG         # Screenshot of task scheduler triggers
     |__ CI_execution.PNG                    # Screenshot of successful continuous integration execution
     |__ unit_test_results.PNG               # Screenshot of successful unit test results
 
@@ -351,7 +351,7 @@ db_password = "<your_database_password>"    # postgresql password
 The `credentials.py` file is already in .gitignore and thus your credentials will not be stored on Git. 
 
 ## Running code locally 
-To run the ETL code on your computer, execute the following in your terminal: 
+To run the ETL code on your computer, execute the following in your terminal in order: 
 
 ```
 cd Scripts
