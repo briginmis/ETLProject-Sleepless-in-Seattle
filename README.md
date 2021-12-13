@@ -29,9 +29,13 @@ To provide confidence over the transformations applied, unit tests have also bee
 Images/                                     # contains images used for the README
     |__ ERD.PNG                      	    # Entity Relational Diagram
     |__ Solution_architexture_diagram.PNG   # Solution Architecture Diagram
-    |__ task_scheduler_actions.PNG          # Screenshot of task schduler actions
+    |__ task_scheduler_action.PNG           # Screenshot of task scheduler edit action
+    |__ task_scheduler_actions.PNG          # Screenshot of task scheduler actions
     |__ task_scheduler_general.PNG          # Screenshot of task schduler general
+    |__ task_scheduler_trigger.PNG          # Screenshot of task schduler trigger schedule
     |__ task_scheduler_triggers.PNG         # Screenshot of task schduler triggers
+    |__ CI_execution.PNG                    # Screenshot of successful continuous integration execution
+    |__ unit_test_results.PNG               # Screenshot of successful unit test results
 
 Resources/                                  # contains static datasets and cleaned datasets
     |__ listings.csv                        # initial csv 1
@@ -106,14 +110,14 @@ Data is extracted from the following data sources.
 
 
 The following transformation scripts are executed: 
-| Script | Input | Output |  
+| Script | Input CSV | Output CSV |  
 | - | - |- |
-| [Address_Final_ETL.ipynb](Scripts/Address_Final_ETL.ipynb) | [1] | `Address_clean2` |
-| [Amenities_ETL.ipynb](Scripts/Amenities_ETL.ipynb) | [1] | `Amenities_clean` |
-| [calendar_cleaning.ipynb](Scripts/calendar_cleaning.ipynb) | [1] | `calendar_clean` | 
-| [Host_Verifications_ETL.ipynb](Scripts/Host_Verifications_ETL.ipynb) | [1] | `Host_Verifications_Clean` |
-| [listing_clean.ipynb](Scripts/listing_clean.ipynb) | [6] | `Property_clean`, `Address_clean2`, `Host_clean`, `Review_Statistics_clean`, `Pricing_clean`, `Availability`|
-| [scrape.ipynb](Scripts/scrape.ipynb) | [1] | `Attractions` |
+| [Address_Final_ETL.ipynb](Scripts/Address_Final_ETL.ipynb) | `Address_clean`,`Attractions` | `Address_clean2` |
+| [Amenities_ETL.ipynb](Scripts/Amenities_ETL.ipynb) | `listings` | `Amenities_clean` |
+| [calendar_cleaning.ipynb](Scripts/calendar_cleaning.ipynb) | `calendar` | `calendar_clean` | 
+| [Host_Verifications_ETL.ipynb](Scripts/Host_Verifications_ETL.ipynb) | `listings` | `Host_Verifications_Clean` |
+| [listing_clean.ipynb](Scripts/listing_clean.ipynb) | `listings` | `Property_clean`, `Address_clean`, `Host_clean`, `Review_Statistics_clean`, `Pricing_clean`, `Availability`|
+| [scrape.ipynb](Scripts/scrape.ipynb) | `Visit Seattle (website)`,`Google Places API` | `Attractions` |
 
 
 All `.ipynb` notebooks are converted to `.py` by running the code below: 
@@ -143,7 +147,7 @@ The ERD diagram was created using: https://app.quickdatabasediagrams.com/#/
 
 ![ERD.PNG](Images/ERD.PNG)
 
-The Data Definition Language (DDL) used to create the tables can be found [here](scripts/ddl_create_table.sql). 
+The Data Definition Language (DDL) used to create the tables can be found [here](Scripts/ddl_create_table.sql). 
 
 ### Data dictionary 
 
@@ -397,12 +401,12 @@ The expected output when the CI pipeline runs are:
 
 1. Successful execution of CI pipeline 
 
-![ci-pipeline.png](images/ci-pipeline.png)
+![CI_execution.PNG](Images/CI_execution.PNG)
 
 
 2. All unit tests passed 
 
-![ci-test-output.png](images/ci-test-output.png)
+![unit_test_results.PNG](Images/unit_test_results.PNG)
 
 
 
