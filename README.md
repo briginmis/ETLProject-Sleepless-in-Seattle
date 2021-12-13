@@ -351,19 +351,21 @@ To run the ETL code on your computer, execute the following in your terminal:
 
 ```
 cd Scripts
-python -m jupyter nbconvert --to python scripts/Address_Final.ipynb
+
 python -m jupyter nbconvert --to python scripts/Amenities_ETL.ipynb
 python -m jupyter nbconvert --to python scripts/calendar_cleaning.ipynb
 python -m jupyter nbconvert --to python scripts/Host_Verifications_ETL.ipynb
 python -m jupyter nbconvert --to python scripts/listing_clean.ipynb
 python -m jupyter nbconvert --to python scripts/scrape.ipynb
+python -m jupyter nbconvert --to python scripts/Address_Final.ipynb
 
-python Scripts/Address_Final_ETL.py
+
 python Scripts/Amenities_ETL.py
 python Scripts/calendar_cleaning.py
 python Scripts/Host_Verifications_ETL.py
 python Scripts/listing_clean.py
 python Scripts/scrape.py
+python Scripts/Address_Final_ETL.py
 
 ```
 
@@ -414,33 +416,33 @@ The expected output when the CI pipeline runs are:
 
 2. Select `Create task`
 
-![images/task-scheduler-1.png](images/task-scheduler-1.png)
-
 3. Provide a name for the task 
 
-![images/task-scheduler-2.png](images/task-scheduler-2.png)
+![Images/task_scheduler_general.png](Images/task_scheduler_general.png)
 
 4. Select `Actions` > `New` 
 
-![images/task-scheduler-3.png](images/task-scheduler-3.png)
+![Images/task_scheduler_actions.png](Images/task_scheduler_actions.png)
 
 5. Provide the following details, and click `OK`: 
     - Program/script: `<provide path to your python.exe in your conda environment folder>`
-        - Example: `C:\Users\jonat\anaconda3\envs\PythonData\python.exe`
-    - Add arguments (optional): `<provide the etl file>`
-        - Example: `etl.py` 
+        - Example: `C:\Users\walto\anaconda3\envs\PythonData\python.exe`
+    - Add arguments : `<provide the etl file>`
+        - Example: `cleaning_functions.py` 
     - Start in (optional): `<provide the path to the etl file>` 
-        - Example: `C:\Users\jonat\Documents\weather-etl\scripts`
+        - Example: `C:\Users\walto\Desktop\Homework\ETLProject-Sleepless-in-Seattle\Scripts`
 
-![images/task-scheduler-4.png](images/task-scheduler-4.png)
+![Images/task_scheduler_action.png](Images/task_scheduler_action.png)
 
-6. Select `Triggers` 
+6. Repeat steps 4 and 5 for as many scripts as required
 
-![images/task-scheduler-5.png](images/task-scheduler-5.png)
+7. Select `Triggers` 
 
-7. Provide details of when you would like the job to run 
+![Images/task_scheduler_triggers.png](Images/task_scheduler_triggers.png)
 
-![images/task-scheduler-6.png](images/task-scheduler-6.png)
+7. Select `New...` and provide details of when you would like the job to run 
+
+![Images/task_scheduler_trigger.png](Images/task_scheduler_trigger.png)
 
 8. Click `OK` 
 
