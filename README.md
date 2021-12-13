@@ -97,7 +97,7 @@ Data is extracted from the following data sources.
 | 2 | Calendar.csv | Contains the availability and price of each listing for each date | CSV | https://www.kaggle.com/airbnb/seattle?select=calendar.csv |
 | 3 | Reviews.csv | Contains the text commentary for each review | CSV | https://www.kaggle.com/airbnb/seattle?select=reviews.csv 
 | 4 | Visit Seattle | Top 25 attractions in Seattle | HTML | https://visitseattle.org/things-to-do/sightseeing/top-25-attractions/ 
-| 3 | Google Text Search | Contains coordinates of locations | API | https://developers.google.com/maps/documentation/places/web-service/search-text | 
+| 5 | Google Text Search | Contains coordinates of locations | API | https://developers.google.com/maps/documentation/places/web-service/search-text | 
 
 </details>
 
@@ -108,14 +108,17 @@ Data is extracted from the following data sources.
 The following transformation scripts are executed: 
 | Script | Input | Output |  
 | - | - |- |
-| [Listing_ETL.ipynb](scripts/Listing_ETL.ipynb) | [1] | `something`, `something`, `something` |
-| [Amenities_ETL.ipynb](scripts/Amenities_ETL.ipynb) | [1] | `something`, `something`, `something` |
-| [Reviews_ETL.ipynb](scripts/Reviews_ETL.ipynb) | [3] | `something`, `something`, `something` | 
-| 
+| [Address_Final_ETL.ipynb](Scripts/Address_Final_ETL.ipynb) | [1] | `Address_clean2` |
+| [Amenities_ETL.ipynb](Scripts/Amenities_ETL.ipynb) | [1] | `Amenities_clean` |
+| [calendar_cleaning.ipynb](Scripts/calendar_cleaning.ipynb) | [1] | `calendar_clean` | 
+| [Host_Verifications_ETL.ipynb](Scripts/Host_Verifications_ETL.ipynb) | [1] | `Host_Verifications_Clean` |
+| [listing_clean.ipynb](Scripts/listing_clean.ipynb) | [6] | `Property_clean`, `Address_clean2`, `Host_clean`, `Review_Statistics_clean`, `Pricing_clean`, `Availability`|
+| [scrape.ipynb](Scripts/scrape.ipynb) | [1] | `Attractions` |
 
-The `etl.ipynb` notebook is converted to `etl.py` by running the code below: 
+
+All `.ipynb` notebooks are converted to `.py` by running the code below: 
 ```sh
-python -m jupyter nbconvert --to python etl.ipynb
+python -m jupyter nbconvert --to python <notebook name>.ipynb
 ```
 </details>
 
@@ -207,7 +210,7 @@ Below are the data definitions for the following tables:
 |monthly_price| price for 1 month|
 |security_deposit| security deposit for the listing|
 |cleaning_fee| fee for cleaning for each period of stay|
-|extra_people| ??The price for extra people to stay??|
+|extra_people| The price for extra people to stay|
 |cancellation policy| how strict the listing is in terms of its cancellation policy |
 </details>
 
@@ -322,33 +325,24 @@ Below are the data definitions for the following tables:
 </details>
 
 
-
-
-
-
-
-
-
 # Usage 
 
 ## Python dependencies 
-The required python libraries and version have been specified in [requirements.txt](requirements.txt). 
+The required python libraries and version have been specified in [Requirements.txt](Requirements.txt). 
 
 Install python dependencies by performing : 
 
 ```
-pip install -r requirements.txt 
+pip install -r Requirements.txt 
 ```
 
 ## Credentials 
-In the `script/` folder, create a `credentials.py` file with the following variables:
+In the `Scripts/` folder, create a `credentials.py` file with the following variables:
 ```py
-api_key = "<your_api_key>"                  # open Google API api key 
+api_key = "<your_api_key>"                  # open Google Places API api key, used in scrape.ipynb
 db_user = "<your_database_user>"            # postgresql username 
 db_password = "<your_database_password>"    # postgresql password 
 ```
-
-These credentials will be used in the `scrape.ipynb` notebook. 
 
 The `credentials.py` file is already in .gitignore and thus your credentials will not be stored on Git. 
 
@@ -357,9 +351,19 @@ To run the ETL code on your computer, execute the following in your terminal:
 
 ```
 cd Scripts
-python -m jupyter nbconvert --to python scripts/etl.ipynb #JONO's
-python scripts/etl.py #JONO's
-python Scripts/cleaning_functions.py
+python -m jupyter nbconvert --to python scripts/Address_Final.ipynb
+python -m jupyter nbconvert --to python scripts/Amenities_ETL.ipynb
+python -m jupyter nbconvert --to python scripts/calendar_cleaning.ipynb
+python -m jupyter nbconvert --to python scripts/Host_Verifications_ETL.ipynb
+python -m jupyter nbconvert --to python scripts/listing_clean.ipynb
+python -m jupyter nbconvert --to python scripts/scrape.ipynb
+
+python Scripts/Address_Final_ETL.py
+python Scripts/Amenities_ETL.py
+python Scripts/calendar_cleaning.py
+python Scripts/Host_Verifications_ETL.py
+python Scripts/listing_clean.py
+python Scripts/scrape.py
 
 ```
 
@@ -375,8 +379,6 @@ You should see the following output:
 ```
 ====== test session starts ======
 platform win32 -- Python 3.8.8, pytest-6.2.3, py-1.10.0, pluggy-0.13.1
-rootdir: C:\Users\brian\OneDrive\Documents\Data_analytics_bootcamp\Project_2\ETLProject-Sleepless-in-Seattle
-plugins: anyio-2.2.0
 collected 4 items
 
 Scripts\test_transformation_functions.py ....  
