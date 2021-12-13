@@ -24,19 +24,53 @@ To provide confidence over the transformations applied, unit tests have also bee
 # Repo structure 
 ```
 .github/workflows                           # contains continuous integration pipelines 
+    |__ etl-ci.yml	                    # etl continuous integration
+
+Images/                                     # contains images used for the README
+    |__ ERD.PNG                      	    # Entity Relational Diagram
+    |__ Solution_architexture_diagram.PNG   # Solution Architecture Diagram
+    |__ task_scheduler_actions.PNG          # Screenshot of task schduler actions
+    |__ task_scheduler_general.PNG          # Screenshot of task schduler general
+    |__ task_scheduler_triggers.PNG         # Screenshot of task schduler triggers
+
 Resources/                                  # contains static datasets and cleaned datasets
-Docs/                                       # contains additional documentation 
-images/                                     # contains images used for the README
+    |__ listings.csv                        # initial csv 1
+    |__ reviews.csv                         # initial csv 2
+    |__ calendar.csv                        # initial csv 3
+    |__ Attractions.csv                     # csv of Seattles top landmarks derived from Google API
+    |__ Address_clean.csv                   # intermediate csv containing listing address information
+    |__ Address_clean2.csv                  # final csv including distance column from seattle landmarks
+    |__ Amenities_clean.csv                 # final csv of amenities (listing_id and amenity) 
+    |__ Availability.csv                    # final csv of availability information for each listing.
+    |__ Host_Verifications_Clean.csv        # final csv of verification methods used by the hosts
+    |__ Host_clean.csv                      # final csv of information about each host
+    |__ Pricing_clean.csv                   # final csv of pricing information for each listing
+    |__ Property_clean.csv                  # final csv of the general information for each listing
+    |__ Review_Statistics_clean.csv         # final csv of review statistics for each listing
+    |__ calendar_clean.csv                  # final csv of information for each day for each listing
+
 scripts/    
     |__ credentials.py                      # (already added to .gitignore)
-    |__ ddl_create_table.sql                # SQL code used to create the target tables 
-    |__ etl.ipynb                           # the python ETL notebook (write your code here)
-    |__ etl.py                              # an auto-generated file from the python ETL notebook (do not write your code here)
-    |__ run_etl.sh                          # a shell script used to shorten the amount of code needed to be written in cron 
+    |__ Haversine_Function.py               # function that calculates the distance in km between 2 coordinate pairs
+    |__ cleaning_functions.py               # custom user-generated transformation functions
     |__ test_transformation_functions.py    # pytest unit tests 
-    |__ transform_functions.py              # custom user-generated transformation functions 
+    |__ scrape.ipynb                        # notebook file that retrieves coordinates of top 25 seattle landmarks
+    |__ scrape.py    			    # Python file that retrieves coordinates of top 25 seattle landmarks
+    |__ calendar_cleaning.ipynb    	    # notebook file that applies cleaning functions to calendar csv 
+    |__ calendar_cleaning.py    	    # Python file that applies cleaning functions to calendar csv
+    |__ listing_clean.ipynb    		    # notebook file that applies cleaning functions to listings.csv and splits into various csv's
+    |__ listing_clean.py    		    # Python file that applies cleaning functions to listings.csv and splits into various csv's 
+    |__ Address_Final_ETL.ipynb    	    # notebook file that takes Address_clean.csv and Attractions.csv and applies haversine to get average distance from landmark 
+    |__ Address_Final_ETL.py    	    # Python file that takes Address_clean.csv and Attractions.csv and applies haversine to get average distance from landmark 
+    |__ Amenities_ETL.ipynb    		    # notebook file that applies the explode function from cleaning_functions.py to generate amenities.csv
+    |__ Amenities_ETL.py    		    # Python file that applies the explode function from cleaning_functions.py to generate amenities.csv
+    |__ Host_Verifications_ETL.ipynb        # notebook file that applies the explode function from the cleaning_functions.py to generate Host_verifications.csv
+    |__ Host_Verifications_ETL.py           # Python file that applies the explode function from the cleaning_functions.py to generate Host_verifications.csv
+    |__ quick_database_diagrams_script.txt  # TXT script used in quickdatabasediagrams
+    |__ ddl_create_table.sql                # SQL code used to create the target tables 
+
 README.md                                   # all you need to know is in here 
-requirements.txt                            # python dependencies 
+Requirements.txt                            # python dependencies 
 ```
 
 # Solution 
